@@ -36,58 +36,96 @@ file-integrity-records.json
 release-manifest.json
 citation.txt
 README.md
+```
 
 Each package is designed to keep the main record information together instead of forcing users to manage separate files manually.
 
-Designed for
-Use context	Example
-Research records	Preserve paper, file, version, and release information.
-Creative works	Keep source, authorship, and public citation records together.
-Project folders	Record source files, media files, archives, and delivery folders.
-Internal records	Keep controlled records for non-public files.
-Version review	Compare what changed between two file sets.
-Record visibility
-Visibility	Intended use
-Public	Public release, citation, archive, or reference record
-Internal	Internal project or working record
-Confidential	Sensitive file record with controlled access
-Restricted	Limited-access record
+---
+
+## Designed for
+
+| Use Context | Example |
+|---|---|
+| Research records | Preserve paper, file, version, and release information. |
+| Creative works | Keep source, authorship, and public citation records together. |
+| Project folders | Record source files, media files, archives, and delivery folders. |
+| Internal records | Keep controlled records for non-public files. |
+| Version review | Compare what changed between two file sets. |
+
+---
+
+## Record visibility
+
+| Visibility | Intended Use |
+|---|---|
+| **Public** | Public release, citation, archive, or reference record |
+| **Internal** | Internal project or working record |
+| **Confidential** | Sensitive file record with controlled access |
+| **Restricted** | Limited-access record |
 
 Suggested citation text is generated only for Public records.
 
-Local processing
+---
 
-[!IMPORTANT]
-Files selected inside the tool are processed locally in the browser.
-They are not automatically uploaded to a website server.
+## Local processing
+
+> [!IMPORTANT]
+> Files selected inside the tool are processed locally in the browser.  
+> They are not automatically uploaded to a website server.
 
 The user controls whether generated records are saved, shared, archived, or published.
 
-Boundary
+---
+
+## Boundary
 
 This tool supports provenance documentation, file-integrity records, verification, and version comparison.
 
 It does not prove originality, determine legal ownership, provide an independently trusted timestamp, resolve authorship disputes, create copyright registration, or replace human judgment.
 
-Public record
-Item	Record
-Tool	Provenance Tool
-Version	0.3.1
-Author	Xufen Tu（涂绪芬）
-Processing	Local browser
-Integrity	SHA-256
-Package format	Portable ZIP
-Public provenance anchor	TUX-133.144~
-Related research identity
-Reference	Link
-Research website	https://xufentu.com/
-GitHub profile	https://github.com/xufentu-creator
-ORCID	https://orcid.org/0009-0007-5265-964X
-Public research identity repository	https://github.com/xufentu-creator/xufentu-human-judgment
-Repository separation
+---
+
+## Public record
+
+| Item | Record |
+|---|---|
+| Tool | Provenance Tool |
+| Version | `0.3.1` |
+| Author | Xufen Tu（涂绪芬） |
+| Processing | Local browser |
+| Integrity | SHA-256 |
+| Package format | Portable ZIP |
+| Public provenance anchor | `TUX-133.144~` |
+
+---
+
+## Related research identity
+
+| Reference | Link |
+|---|---|
+| Research Website | https://xufentu.com/ |
+| GitHub Profile | https://github.com/xufentu-creator |
+| ORCID | https://orcid.org/0009-0007-5265-964X |
+| Public Research Identity Repository | https://github.com/xufentu-creator/xufentu-human-judgment |
+
+---
+
+## Repository separation
 
 Early provenance tool records were created during the stage when tool materials and public research identity materials were maintained together.
 
 Current and future Provenance Tool releases are maintained in this dedicated repository.
 
-<p align="center"> <code>TUX-133.144~</code> </p> ```
+---
+
+## Version history
+
+| Version | Status |
+|---|---|
+| `v0.3.1` | Public browser-based provenance workspace with Create, Verify, and Compare modes |
+
+---
+
+<p align="center">
+  <code>TUX-133.144~</code>
+</p>
