@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://xufentu.com/provenance-tool/schemas/provenance-package.schema.json",
+  "$id": "https://research-tools.xufentu.com/schemas/provenance-package.schema.json",
   "title": "Provenance Tool Package Schema",
   "type": "object",
   "required": [
