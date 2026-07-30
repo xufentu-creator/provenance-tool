@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If this software materially supports research or publication, please cite the software. Generated packages also preserve factual tool attribution."
+title: "Provenance Tool"
+type: software
+authors:
+  - family-names: "Tu"
+    given-names: "Xufen"
+version: "0.4.0"
+date-released: "2026-07-30"
+url: "https://xufentu.com/provenance-tool/"
+repository-code: "https://github.com/xufentu-creator/provenance-tool"
+license: "Apache-2.0"
+keywords:
+  - provenance
+  - human judgment
+  - authorship continuity
+  - version identity
+  - responsibility boundaries
+  - file integrity
