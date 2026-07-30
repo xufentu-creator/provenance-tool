@@ -1,0 +1,37 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Provenance Tool",
+  "version": "0.4.2",
+  "description": "A free, local-first, open-source PWA for creating portable file provenance records, verifying integrity, and comparing file-level changes.",
+  "codeRepository": "https://github.com/xufentu-creator/provenance-tool",
+  "issueTracker": "https://github.com/xufentu-creator/provenance-tool/issues",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "author": {
+    "@type": "Person",
+    "givenName": "Xufen",
+    "familyName": "Tu"
+  },
+  "maintainer": {
+    "@type": "Person",
+    "givenName": "Xufen",
+    "familyName": "Tu"
+  },
+  "datePublished": "2026-07-30",
+  "programmingLanguage": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "runtimePlatform": "Web browser",
+  "applicationCategory": "Research software",
+  "keywords": [
+    "provenance",
+    "file integrity",
+    "SHA-256",
+    "version continuity",
+    "human confirmation",
+    "local-first",
+    "PWA"
+  ]
+}

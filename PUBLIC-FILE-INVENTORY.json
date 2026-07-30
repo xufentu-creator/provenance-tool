@@ -1,0 +1,161 @@
+{
+  "release": "0.4.2",
+  "generated_at": "2026-07-30",
+  "files": [
+    {
+      "path": ".well-known/security.txt",
+      "size": 247,
+      "sha256": "0e9ea6aa6bbf24502b1426dae4246f56eae25d67415c52756f5b7f707bbe4d2e"
+    },
+    {
+      "path": "404.html",
+      "size": 3862,
+      "sha256": "1f46dc354033ab62654bf8b5ecc13d0a973d3108fb89c52dead381aec5b0893a"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": 1906,
+      "sha256": "7b27565ca690ea79029de1dfdcf0155e08f4039cc5135be2fa4f50dce8dea82a"
+    },
+    {
+      "path": "CITATION.bib",
+      "size": 199,
+      "sha256": "977e68e45c63ec25b6dddabcaa22bd7ad17b5875998e556a2148c1b4b6e54cc7"
+    },
+    {
+      "path": "CITATION.cff",
+      "size": 593,
+      "sha256": "7d2e1bdb41119a9e106de082e40e1ec7f9d66cd50b2538bbf24199848f87b008"
+    },
+    {
+      "path": "CNAME",
+      "size": 27,
+      "sha256": "222063f8a9e96c39e4a10663b6587f20d2850228217080d384284b765e99b490"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "size": 267,
+      "sha256": "0400cdd809be8078c0b39b40879c339cddaff9af3535cb8503f70146a08c96b6"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size": 703,
+      "sha256": "9ca282e84d550791f44d0ba8d43b4ec4065d4e05c0f0962f3a1ca07a15019b81"
+    },
+    {
+      "path": "LICENSE",
+      "size": 706,
+      "sha256": "a919a9438f81e175b9515358a1dc2ae15e9573d5c4fd981cc023d16c5b29052c"
+    },
+    {
+      "path": "NOTICE",
+      "size": 375,
+      "sha256": "b9d1311dc20b52fa146c9c7299a9a8d67900392f5a8d0085aedc455530cf1566"
+    },
+    {
+      "path": "README.md",
+      "size": 2448,
+      "sha256": "d408d99933b94317db6951599a8093f511f074efbc9181e6135371486964d718"
+    },
+    {
+      "path": "SECURITY.md",
+      "size": 429,
+      "sha256": "7b5a13cad6c198c10be5789311e5ee342343d2f407ebe0a6505266f197f8c438"
+    },
+    {
+      "path": "about.html",
+      "size": 6179,
+      "sha256": "279c0dbc0895f482b0bf5215c4ebc55f4d4bfe920502a18999836ab99cdfe935"
+    },
+    {
+      "path": "assets/social-card.png",
+      "size": 32627,
+      "sha256": "0d087eadbfe3b6ec470311b3ac12c4196330f646919d60929e23aacb01e5f536"
+    },
+    {
+      "path": "citation.html",
+      "size": 5040,
+      "sha256": "73293148f5a4d83ba9c1f4893cd62d97fefcfce9495d8bcce2cb4d8176dd18e4"
+    },
+    {
+      "path": "codemeta.json",
+      "size": 1043,
+      "sha256": "ed63d306de11d6bc96244c8ea82b09dd9255a227b7e2018e1b94762829d354cd"
+    },
+    {
+      "path": "faq.html",
+      "size": 7721,
+      "sha256": "5acd6dea4687dc16bd946e901d462fd8b89b0b71f7a07c1477ffee82752fdefb"
+    },
+    {
+      "path": "how-it-works.html",
+      "size": 5251,
+      "sha256": "75be1ecb6c8cb7058e2ca63a30798320a192d74af240dbd93196dad8d87fde47"
+    },
+    {
+      "path": "icons/icon-192.png",
+      "size": 890,
+      "sha256": "b76d99e082f59b54629c5d639bc69449aa9c5c78df4418a500b1ea60389fe945"
+    },
+    {
+      "path": "icons/icon-512.png",
+      "size": 2771,
+      "sha256": "4d7f6240b24da1591ac5270cb5dc5480edbd38c52bd12f641c19ecb4136469c9"
+    },
+    {
+      "path": "index.html",
+      "size": 64268,
+      "sha256": "71d3cadefae7f0f7113deac1b840b54099bb24be13983619e5237e3333135af8"
+    },
+    {
+      "path": "llms.txt",
+      "size": 1365,
+      "sha256": "e6fb75eb491eb0e036b2f9e2629a1f406a6635d098f75d490bc8214afe940307"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "size": 713,
+      "sha256": "ba9a0359e9762806620b89ef589d8dbef55fc971119c9f79f06f005567bb9989"
+    },
+    {
+      "path": "privacy.html",
+      "size": 4907,
+      "sha256": "19101f65a614621c79cfd5528612e268d7c712f9d95abfad1d2916623a577de2"
+    },
+    {
+      "path": "robots.txt",
+      "size": 183,
+      "sha256": "daeed8655c8cd119384c744529db41470adbbfa699100496eb981050dfea16a8"
+    },
+    {
+      "path": "schemas/provenance-package.schema.json",
+      "size": 1364,
+      "sha256": "3149d8b4e85d41499b7f6d5b154706d1ef1db25fb37c2e2941adf45c5ce9db5e"
+    },
+    {
+      "path": "service-worker.js",
+      "size": 1260,
+      "sha256": "c3e000414ae26cf1f37d0761b3e8d96812c7b0d5777fe076bc9ccc6f98b61d8f"
+    },
+    {
+      "path": "sitemap.xml",
+      "size": 807,
+      "sha256": "28c9de531de04efcafbb0e70c00e6a88a12114b39db1d5f3b5e23be4384406e5"
+    },
+    {
+      "path": "use-cases.html",
+      "size": 5254,
+      "sha256": "7e50a6a27bd341b31879d9d98b3f39fb2649caf1f6a6a3ce2d6fdcf0e07976c2"
+    },
+    {
+      "path": "vendor/JSZIP-LICENSE.md",
+      "size": 33753,
+      "sha256": "566c953c6090b1218ca6217dd7359d45dde46581968586dc607d59a78af6a9c4"
+    },
+    {
+      "path": "vendor/jszip.min.js",
+      "size": 97630,
+      "sha256": "acc7e41455a80765b5fd9c7ee1b8078a6d160bbbca455aeae854de65c947d59e"
+    }
+  ]
+}

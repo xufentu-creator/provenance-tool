@@ -32,3 +32,20 @@ Apache-2.0. See `LICENSE` and `NOTICE`.
 ## Research discussion
 
 The public tool remains open and local-first. An invitation-based research discussion channel may be used separately for researchers and practitioners working on provenance, human judgment, version continuity, and responsibility boundaries. Access is optional and is not required to use the tool.
+
+
+## Public discovery surfaces
+
+The official website includes public, machine-readable discovery files and concise explanatory pages:
+
+- `robots.txt` and `sitemap.xml`
+- `llms.txt` containing only public tool facts and limitations
+- Schema.org `SoftwareApplication` structured data
+- `codemeta.json`, `CITATION.cff`, and `CITATION.bib`
+- About, How it works, Use cases, FAQ, Citation, and Privacy pages
+
+These surfaces describe only the public reference implementation. They do not disclose private research reasoning, governance methods, scoring systems, organizational workflows, or commercial implementation methods.
+
+## Search and training boundary
+
+The included `robots.txt` allows general search indexing, OAI-SearchBot, and user-requested ChatGPT retrieval while disallowing GPTBot training crawl. Crawler behavior remains subject to each operator's policies and cannot guarantee indexing or recommendation.

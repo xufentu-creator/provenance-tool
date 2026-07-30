@@ -28,3 +28,13 @@
 - Added `RECORD-SUMMARY.txt` inside generated packages.
 - Added a low-interruption invitation-based research discussion entry.
 - Preserved the separation between public research origin, the free tool, and optional external services.
+
+### v0.4.2 — AI discovery and product documentation refinement
+
+- Added SoftwareApplication and website structured data
+- Added public About, How it works, Use cases, FAQ, Citation, and Privacy pages
+- Added robots.txt, sitemap.xml, llms.txt, codemeta.json, and CITATION.bib
+- Added social sharing metadata and preview image
+- Added a standard security contact file
+- Kept public descriptions limited to the reference implementation and explicit responsibility boundaries
+- Did not expose private research reasoning, governance methods, scoring rules, commercial workflows, or future roadmap
