@@ -1,4 +1,4 @@
-# Provenance Tool v0.4.1
+# Provenance Tool v0.4.2
 
 A free, local-first PWA for creating portable file-integrity records, verifying recorded files and package manifests, and comparing file-level changes.
 
@@ -26,3 +26,5 @@ Official reference implementation originated by **Xufen Tu**.
 ## License
 
 Apache-2.0. See `LICENSE` and `NOTICE`.
+
+- Automatic editable title and date suggestions from selected file metadata.
