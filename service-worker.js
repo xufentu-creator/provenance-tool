@@ -1,4 +1,4 @@
-const CACHE_NAME = "provenance-tool-v0.4.2-public-clean-1";
+const CACHE_NAME = "provenance-tool-v0.4.2-ui-clean-2-public-clean-1";
 const APP_SHELL = ["./","./index.html","./about.html","./how-it-works.html","./use-cases.html","./faq.html","./citation.html","./privacy.html","./404.html","./manifest.webmanifest","./robots.txt","./sitemap.xml","./llms.txt","./codemeta.json","./CITATION.cff","./CITATION.bib","./vendor/jszip.min.js","./icons/icon-192.png","./icons/icon-512.png","./assets/social-card.png"];
 self.addEventListener("install", event => event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())));
 self.addEventListener("activate", event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))).then(() => self.clients.claim())));
