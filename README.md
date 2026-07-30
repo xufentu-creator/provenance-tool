@@ -28,3 +28,7 @@ Official reference implementation originated by **Xufen Tu**.
 Apache-2.0. See `LICENSE` and `NOTICE`.
 
 - Automatic editable title and date suggestions from selected file metadata.
+
+## Research discussion
+
+The public tool remains open and local-first. An invitation-based research discussion channel may be used separately for researchers and practitioners working on provenance, human judgment, version continuity, and responsibility boundaries. Access is optional and is not required to use the tool.

@@ -168,6 +168,20 @@
     @media(max-width:980px){.canvas{grid-template-columns:1fr}.sidecard{position:static}.modebar{top:82px}.view{padding:26px}.hero{padding-top:36px}}
     @media(max-width:620px){.shell{width:min(calc(100% - 14px),1240px)}.topbar{border-radius:16px}.app-subtitle{display:none}.status-chip{display:none}.hero{padding:34px 4px 20px}.hero h1{font-size:42px}.hero-copy{font-size:15px}.modebar{top:76px;max-width:none}.view{padding:18px}.workspace{border-radius:22px}.drop{min-height:310px;padding:24px 18px}.sidecard{padding:18px}.advanced-grid{grid-template-columns:1fr}.advanced-grid .full{grid-column:auto}.filelist{border-radius:14px}.filerow{grid-template-columns:minmax(0,1fr) auto}.fstate{display:none}.top-actions .button{display:none!important}}
 
+
+    /* v0.4.2 compact authority refinement */
+    .hero{padding:28px 8px 18px}.hero h1{font-size:clamp(34px,5vw,56px)}.hero-copy{font-size:15px}.privacy{margin-top:10px}
+    .workspace{max-width:980px;margin:0 auto}.view{padding:26px 28px 30px}.view-head{margin-bottom:15px}.view-head h2{font-size:24px}
+    .canvas{grid-template-columns:minmax(0,1fr) minmax(320px,390px);gap:18px}.drop{min-height:285px}.drop-icon{width:54px;height:54px;border-radius:17px}.drop h3{font-size:22px}
+    .sidecard{top:145px;padding:20px}.mini input,.mini select{height:44px}.actionrow{margin-top:14px}
+    .resultbox{max-width:720px;margin:18px auto 0;padding:18px 20px;border-radius:18px;background:#111;color:#fff;box-shadow:0 16px 38px rgba(17,18,22,.14)}
+    .resultbox h3{font-size:18px}.resultbox>p{margin:4px 0 12px;font-size:13px}.result-title{font-size:16px;font-weight:750;line-height:1.35}.result-meta{margin-top:4px;color:#bfc1c5;font-size:12px}
+    .result-identifiers{display:grid;gap:8px;margin-top:14px}.id-row{display:grid;grid-template-columns:88px minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px 10px;border:1px solid #2e3035;border-radius:11px;background:#17181c}.id-label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#96999f}.id-value{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.text-action{border:0;background:transparent;color:#d9dadc;font-size:11px;cursor:pointer;padding:3px 4px}.text-action:hover{color:#fff}
+    .result-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.result-actions .button{min-height:40px;padding:0 14px;font-size:12px}.result-details{margin-top:12px;border-top:1px solid #2d2f34;padding-top:10px}.result-details summary{cursor:pointer;color:#bfc1c5;font-size:12px}.result-details .tablewrap{max-height:230px;margin-top:10px;border-radius:12px}.result-details table{font-size:11px}.result-details th,.result-details td{padding:9px 10px}
+    .copy-help{font-size:11px;margin-top:9px}.research-footer{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;margin-top:12px}.research-footer a{color:#4f555d;text-decoration:none;border-bottom:1px solid #cfd2d6}.research-footer a:hover{color:#111;border-color:#111}
+    @media(max-width:980px){.workspace{max-width:none}.canvas{grid-template-columns:1fr}.sidecard{position:static}.resultbox{max-width:none}}
+    @media(max-width:620px){.hero{padding-top:24px}.hero h1{font-size:34px}.view{padding:16px}.drop{min-height:245px}.resultbox{padding:16px}.id-row{grid-template-columns:72px minmax(0,1fr)}.id-row .text-action{display:none}.result-actions .button{flex:1}}
+
   </style>
 </head>
 <body>
@@ -255,22 +269,29 @@
             <div id="createResult" class="resultbox">
               <h3 data-i18n="ready">Record complete</h3>
               <p data-i18n="readyCopy">Your portable provenance package is ready to save.</p>
-              <div id="recordSummary" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px"></div>
-              <div id="hashSummary" class="tablewrap" style="margin-top:16px;background:#fff;color:#111"></div>
-              <div class="actionrow">
+              <div id="compactResultTitle" class="result-title"></div>
+              <div id="compactResultMeta" class="result-meta"></div>
+              <div class="result-identifiers">
+                <div class="id-row"><span class="id-label">Record ID</span><span id="compactRecordId" class="id-value"></span><button id="copyRecordId" class="text-action" type="button">Copy</button></div>
+                <div class="id-row"><span class="id-label">ZIP SHA-256</span><span id="compactPackageHash" class="id-value"></span><button id="copyPackageHash" class="text-action" type="button">Copy</button></div>
+              </div>
+              <div class="result-actions">
                 <button id="downloadPackage" class="button primary" data-i18n="savePackage">Save provenance package</button>
-                <button id="saveChecksum" class="button secondary" data-i18n="saveChecksum">Save checksum</button>
+                <button id="saveSummary" class="button secondary" data-i18n="saveSummary">Save summary</button>
                 <button id="copySummary" class="button secondary" data-i18n="copySummary">Copy record information</button>
               </div>
-              <p class="copy-help" data-i18n="copyHelp">Copied text goes to your device clipboard. Paste it with Ctrl+V into a local project log, delivery record, or archive note.</p>
-              <details id="citationDetails" style="margin-top:14px">
-                <summary data-i18n="citationOptional" style="cursor:pointer;color:#cfcfcf">Citation (public records only)</summary>
-                <div style="margin-top:10px">
-                  <code id="citationPreview" style="display:block;white-space:pre-wrap;word-break:break-word;color:#fff"></code>
-                  <button id="copyCitation" class="button secondary" style="margin-top:10px" data-i18n="copyCitation">Copy citation</button>
-                </div>
+              <p class="copy-help" data-i18n="copyHelp">The saved summary and copied text contain the same record information.</p>
+              <details class="result-details">
+                <summary data-i18n="technicalDetails">Technical details</summary>
+                <div id="recordSummary" style="display:none"></div>
+                <div id="hashSummary" class="tablewrap" style="background:#fff;color:#111"></div>
+                <div style="margin-top:10px"><button id="saveChecksum" class="button secondary" data-i18n="saveChecksum">Save checksum</button></div>
+                <details id="citationDetails" style="margin-top:12px">
+                  <summary data-i18n="citationOptional">Citation (public records only)</summary>
+                  <div style="margin-top:10px"><code id="citationPreview" style="display:block;white-space:pre-wrap;word-break:break-word;color:#fff"></code><button id="copyCitation" class="button secondary" style="margin-top:10px" data-i18n="copyCitation">Copy citation</button></div>
+                </details>
               </details>
-              <p id="packageHash" style="margin:12px 0 0;color:#cfcfcf;font-size:12px;word-break:break-all"></p><p id="downloadStatus" style="margin:8px 0 0;color:#cfcfcf;font-size:13px"></p>
+              <p id="packageHash" style="display:none"></p><p id="downloadStatus" style="margin:8px 0 0;color:#cfcfcf;font-size:12px"></p>
             </div>
           </aside>
         </div>
@@ -354,18 +375,18 @@
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <footer class="footer">
-      <span>Provenance Tool v0.4.2 · Official reference implementation · </span>
-      <span data-i18n="boundary">Integrity records support comparison. Local time is not a certified timestamp.</span>
+      <div><span>Provenance Tool v0.4.2 · Official reference implementation originated by Xufen Tu · </span><span data-i18n="boundary">Integrity records support comparison. Local time is not a certified timestamp.</span></div>
+      <div class="research-footer"><a href="https://xufentu.com" rel="author">Research origin</a><a href="mailto:xufentu@gmail.com?subject=Research%20Circle%20Access%20Request" data-i18n="researchCircle">Invitation-based research discussion</a></div>
     </footer>
   </main>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Provenance Tool","softwareVersion":"0.4.2","applicationCategory":"ResearchApplication","operatingSystem":"Web Browser","isAccessibleForFree":true,"author":{"@type":"Person","name":"Xufen Tu","url":"https://xufentu.com"},"license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A local-first open-source research PWA for portable provenance records, file-integrity verification, version continuity, and human-confirmed metadata."}</script>
 <script>
 const $=id=>document.getElementById(id);
-const state={create:[],verifyFiles:[],verifyRecord:null,before:[],after:[],packageBlob:null,packageHash:"",citation:"",summary:""};
+const state={create:[],verifyFiles:[],verifyRecord:null,before:[],after:[],packageBlob:null,packageHash:"",citation:"",summary:"",recordId:""};
 const translations={
-en:{eyebrow:"Portable file provenance",hero:"Create. Verify. Compare.",heroCopy:"Create portable records, verify file integrity, and compare file-level changes in your browser.",privacy:"Source files stay in your browser.",modeCreate:"Create record",modeVerify:"Verify record",modeCompare:"Compare versions",createTitle:"Create a provenance package",createCopy:"Add files, enter the essentials, and save the generated records as one ZIP.",dropTitle:"Drop files or a folder",dropCopy:"Select files, or drag a folder where supported.",selectFiles:"Select files",selectFolder:"Select folder",essential:"Essential details",title:"Title",author:"Creator or recorded entity",version:"Version",date:"Date",type:"Type",classification:"Classification",source:"Official link (optional)",generate:"Generate package",clear:"Clear",ready:"Record complete",readyCopy:"Your portable provenance package is ready to save.",savePackage:"Save provenance package",saveChecksum:"Save checksum",copySummary:"Copy record information",copyHelp:"Copied text goes to your device clipboard. Paste it with Ctrl+V into a local project log, delivery record, or archive note.",copiedSummary:"Record information copied to clipboard.",copiedCitation:"Citation copied to clipboard.",copyFailed:"Copy failed. Please select and copy the text manually.",citationOptional:"Citation (public records only)",copyCitation:"Copy citation",hashTitle:"SHA-256 records",generatedTime:"Generated time",localTime:"Local time",utcTime:"UTC time",downloaded:"ZIP downloaded. Open the ZIP to view the complete records.",verifyTitle:"Verify file integrity",verifyCopy:"Add current files and a saved provenance ZIP or integrity JSON.",currentFiles:"Current files",addFiles:"Add files to verify",addFilesCopy:"The tool recalculates SHA-256 locally.",savedRecord:"Saved record",addRecord:"Add provenance ZIP or JSON",addRecordCopy:"The stored hashes are read locally.",selectRecord:"Select record",runVerify:"Run verification",compareTitle:"See which files changed",compareCopy:"Compare file paths and SHA-256 records between two versions.",before:"Previous version",after:"Current version",addBefore:"Add older files",addAfter:"Add newer files",folderSupport:"Select files, or drag a folder where supported.",runCompare:"Compare versions",unchanged:"Unchanged",changed:"Changed",added:"Added",removed:"Removed",boundary:"Integrity records support comparison. Local time is not a certified timestamp.",tPaper:"Research Paper",tWebsite:"Website",tRepo:"GitHub Repository",tSoftware:"Software",tCode:"Source Code",tAudio:"Audio",tVideo:"Video",tImage:"Image",tArchive:"Archive",tOther:"Other",cPublic:"Public",pathNote:"For folder-based records, use the same root folder structure used when the record was created.",processing:"Processing…",hashing:"Hashing {current}/{total}",generateFailed:"The record could not be generated.",largeFiles:"Large files may require more browser memory and processing time.",autoFillNote:"Title and date are filled from selected file metadata and remain editable.",advancedOptions:"Advanced options"},
-"zh-CN":{eyebrow:"可携带文件溯源",hero:"创建 · 验证 · 对比",heroCopy:"在浏览器中创建记录、核验文件完整性并比较文件级变化。",privacy:"原始文件保留在浏览器中。",modeCreate:"创建记录",modeVerify:"验证记录",modeCompare:"前后对比",createTitle:"创建溯源记录包",createCopy:"添加文件、填写必要信息，并将生成的记录保存为一个 ZIP。",dropTitle:"拖入文件或文件夹",dropCopy:"可选择文件；在浏览器支持时也可拖入文件夹。",selectFiles:"选择文件",selectFolder:"选择文件夹",essential:"必要信息",title:"标题",author:"创建者或记录实体",version:"版本",date:"日期",type:"类型",classification:"记录级别",source:"官方链接（选填）",generate:"生成记录包",clear:"清空",ready:"记录已完成",readyCopy:"可携带的溯源记录包已经准备好保存。",savePackage:"保存溯源记录包",saveChecksum:"保存校验值",copySummary:"复制记录信息",copyHelp:"复制后的内容会进入设备剪贴板。可按 Ctrl+V 粘贴到本地项目记录、交付清单或存档备注中。",copiedSummary:"记录信息已复制到剪贴板。",copiedCitation:"建议引用已复制到剪贴板。",copyFailed:"复制失败，请手动选择文字复制。",citationOptional:"建议引用（仅适用于公开记录）",copyCitation:"复制建议引用",hashTitle:"SHA-256 记录",generatedTime:"生成时间",localTime:"本地时间",utcTime:"UTC 时间",downloaded:"ZIP 已下载。请打开 ZIP 查看完整记录文件。",verifyTitle:"验证文件完整性",verifyCopy:"添加当前文件和已保存的溯源 ZIP 或完整性 JSON。",currentFiles:"当前文件",addFiles:"添加要验证的文件",addFilesCopy:"工具会在本地重新计算 SHA-256。",savedRecord:"已保存记录",addRecord:"添加溯源 ZIP 或 JSON",addRecordCopy:"工具会在本地读取已保存的哈希。",selectRecord:"选择记录",runVerify:"开始验证",compareTitle:"查看哪些文件发生变化",compareCopy:"通过文件路径和 SHA-256 记录比较两个版本。",before:"旧版本",after:"新版本",addBefore:"添加之前的文件",addAfter:"添加现在的文件",folderSupport:"可选择文件；在浏览器支持时也可拖入文件夹。",runCompare:"开始对比",unchanged:"未变化",changed:"已修改",added:"新增",removed:"删除",boundary:"完整性记录支持比对；本地时间不是认证时间戳。",tPaper:"研究论文",tWebsite:"网站",tRepo:"GitHub 仓库",tSoftware:"软件",tCode:"源代码",tAudio:"音频",tVideo:"视频",tImage:"图片",tArchive:"压缩包",tOther:"其他",cPublic:"公开",pathNote:"验证文件夹记录时，请使用与创建记录时一致的根目录结构。",processing:"处理中……",hashing:"计算中 {current}/{total}",generateFailed:"无法生成记录包。",largeFiles:"大文件可能需要更多浏览器内存和处理时间。",autoFillNote:"标题和日期会根据所选文件或文件夹自动填写，并可随时修改。",advancedOptions:"高级选项"}
+en:{eyebrow:"Portable file provenance",hero:"Create. Verify. Compare.",heroCopy:"Create portable records, verify file integrity, and compare file-level changes in your browser.",privacy:"Source files stay in your browser.",modeCreate:"Create record",modeVerify:"Verify record",modeCompare:"Compare versions",createTitle:"Create a provenance package",createCopy:"Add files, enter the essentials, and save the generated records as one ZIP.",dropTitle:"Drop files or a folder",dropCopy:"Select files, or drag a folder where supported.",selectFiles:"Select files",selectFolder:"Select folder",essential:"Essential details",title:"Title",author:"Creator or recorded entity",version:"Version",date:"Date",type:"Type",classification:"Classification",source:"Official link (optional)",generate:"Generate package",clear:"Clear",ready:"Record complete",readyCopy:"Your portable provenance package is ready to save.",savePackage:"Save provenance package",saveChecksum:"Save checksum",saveSummary:"Save human-readable summary",technicalDetails:"Technical details",researchCircle:"Invitation-based research discussion",copySummary:"Copy record information",copyHelp:"The saved summary and copied text contain the same record information.",copiedSummary:"Record information copied to clipboard.",copiedCitation:"Citation copied to clipboard.",copyFailed:"Copy failed. Please select and copy the text manually.",citationOptional:"Citation (public records only)",copyCitation:"Copy citation",hashTitle:"SHA-256 records",generatedTime:"Generated time",localTime:"Local time",utcTime:"UTC time",downloaded:"ZIP downloaded. Open the ZIP to view the complete records.",verifyTitle:"Verify file integrity",verifyCopy:"Add current files and a saved provenance ZIP or integrity JSON.",currentFiles:"Current files",addFiles:"Add files to verify",addFilesCopy:"The tool recalculates SHA-256 locally.",savedRecord:"Saved record",addRecord:"Add provenance ZIP or JSON",addRecordCopy:"The stored hashes are read locally.",selectRecord:"Select record",runVerify:"Run verification",compareTitle:"See which files changed",compareCopy:"Compare file paths and SHA-256 records between two versions.",before:"Previous version",after:"Current version",addBefore:"Add older files",addAfter:"Add newer files",folderSupport:"Select files, or drag a folder where supported.",runCompare:"Compare versions",unchanged:"Unchanged",changed:"Changed",added:"Added",removed:"Removed",boundary:"Integrity records support comparison. Local time is not a certified timestamp.",tPaper:"Research Paper",tWebsite:"Website",tRepo:"GitHub Repository",tSoftware:"Software",tCode:"Source Code",tAudio:"Audio",tVideo:"Video",tImage:"Image",tArchive:"Archive",tOther:"Other",cPublic:"Public",pathNote:"For folder-based records, use the same root folder structure used when the record was created.",processing:"Processing…",hashing:"Hashing {current}/{total}",generateFailed:"The record could not be generated.",largeFiles:"Large files may require more browser memory and processing time.",autoFillNote:"Title and date are filled from selected file metadata and remain editable.",advancedOptions:"Advanced options"},
+"zh-CN":{eyebrow:"可携带文件溯源",hero:"创建 · 验证 · 对比",heroCopy:"在浏览器中创建记录、核验文件完整性并比较文件级变化。",privacy:"原始文件保留在浏览器中。",modeCreate:"创建记录",modeVerify:"验证记录",modeCompare:"前后对比",createTitle:"创建溯源记录包",createCopy:"添加文件、填写必要信息，并将生成的记录保存为一个 ZIP。",dropTitle:"拖入文件或文件夹",dropCopy:"可选择文件；在浏览器支持时也可拖入文件夹。",selectFiles:"选择文件",selectFolder:"选择文件夹",essential:"必要信息",title:"标题",author:"创建者或记录实体",version:"版本",date:"日期",type:"类型",classification:"记录级别",source:"官方链接（选填）",generate:"生成记录包",clear:"清空",ready:"记录已完成",readyCopy:"可携带的溯源记录包已经准备好保存。",savePackage:"保存溯源记录包",saveChecksum:"保存机器校验值",saveSummary:"保存可读摘要",technicalDetails:"技术详情",researchCircle:"申请加入邀请制研究讨论",copySummary:"复制记录信息",copyHelp:"保存的可读摘要与复制内容完全一致。",copiedSummary:"记录信息已复制到剪贴板。",copiedCitation:"建议引用已复制到剪贴板。",copyFailed:"复制失败，请手动选择文字复制。",citationOptional:"建议引用（仅适用于公开记录）",copyCitation:"复制建议引用",hashTitle:"SHA-256 记录",generatedTime:"生成时间",localTime:"本地时间",utcTime:"UTC 时间",downloaded:"ZIP 已下载。请打开 ZIP 查看完整记录文件。",verifyTitle:"验证文件完整性",verifyCopy:"添加当前文件和已保存的溯源 ZIP 或完整性 JSON。",currentFiles:"当前文件",addFiles:"添加要验证的文件",addFilesCopy:"工具会在本地重新计算 SHA-256。",savedRecord:"已保存记录",addRecord:"添加溯源 ZIP 或 JSON",addRecordCopy:"工具会在本地读取已保存的哈希。",selectRecord:"选择记录",runVerify:"开始验证",compareTitle:"查看哪些文件发生变化",compareCopy:"通过文件路径和 SHA-256 记录比较两个版本。",before:"旧版本",after:"新版本",addBefore:"添加之前的文件",addAfter:"添加现在的文件",folderSupport:"可选择文件；在浏览器支持时也可拖入文件夹。",runCompare:"开始对比",unchanged:"未变化",changed:"已修改",added:"新增",removed:"删除",boundary:"完整性记录支持比对；本地时间不是认证时间戳。",tPaper:"研究论文",tWebsite:"网站",tRepo:"GitHub 仓库",tSoftware:"软件",tCode:"源代码",tAudio:"音频",tVideo:"视频",tImage:"图片",tArchive:"压缩包",tOther:"其他",cPublic:"公开",pathNote:"验证文件夹记录时，请使用与创建记录时一致的根目录结构。",processing:"处理中……",hashing:"计算中 {current}/{total}",generateFailed:"无法生成记录包。",largeFiles:"大文件可能需要更多浏览器内存和处理时间。",autoFillNote:"标题和日期会根据所选文件或文件夹自动填写，并可随时修改。",advancedOptions:"高级选项"}
 };
 let currentLang="en";
 function t(k){return (translations[currentLang]||translations.en)[k]||translations.en[k]||k}
@@ -496,7 +517,8 @@ $("generate").onclick=async()=>{
   const recordId=crypto.randomUUID?crypto.randomUUID():`record-${generatedDate.getTime()}-${Math.random().toString(16).slice(2)}`;
   const date=$("date").value,source=$("source").value.trim(),isPublic=$("classification").value==="Public";
   state.citation=isPublic?`${author} (${date?date.slice(0,4):"n.d."}). ${title}${version?` (Version ${version})`:""}${source?`. ${source}`:""}.`:"";
-  state.summary=`${title} · v${version} · ${$("classification").value} · ${state.create.length} file(s) · SHA-256 · Record ${recordId}`;
+  state.recordId=recordId;
+  state.summary="";
   const files=state.create.map(x=>({name:x.file.name,relative_path:x.path,mime_type:x.file.type||"application/octet-stream",size_bytes:x.file.size,last_modified:new Date(x.file.lastModified).toISOString(),sha256:x.hash}));
   const commonTime={generated_at_utc:generatedUtc,generated_at_local:generatedLocal,time_source:"local-device-clock",trusted_timestamp:false};
   const toolAttribution={name:"Provenance Tool",version:"0.4.2",originator:"Xufen Tu",canonical_project:"https://research-tools.xufentu.com",license:"Apache-2.0",attribution_notice:"Generated by the official Provenance Tool reference implementation, originated by Xufen Tu."};
@@ -517,7 +539,8 @@ Trusted timestamp: No
 
 This package contains generated provenance records. Source files are not included.
 `;
-  const packageFiles={"metadata.json":JSON.stringify(metadata,null,2),"provenance.json":JSON.stringify(provenance,null,2),"file-integrity-records.json":JSON.stringify(integrity,null,2),"README.md":readme,"TOOL-ATTRIBUTION.txt":"Provenance Tool v0.4.2\nOriginator: Xufen Tu\nCanonical project: https://research-tools.xufentu.com\nLicense: Apache-2.0\n\nThis factual software attribution identifies the tool used to generate the package. It does not imply endorsement by the user.\n"};
+  const internalSummary=`Provenance Record Summary\n\nTitle: ${title}\nVersion: ${version}\nClassification: ${$("classification").value}\nFiles: ${files.length}\nHash Algorithm: SHA-256\nRecord ID: ${recordId}\n\nGenerated by Provenance Tool v0.4.2\nOriginator: Xufen Tu\nCanonical Tool: https://research-tools.xufentu.com\n`;
+  const packageFiles={"metadata.json":JSON.stringify(metadata,null,2),"provenance.json":JSON.stringify(provenance,null,2),"file-integrity-records.json":JSON.stringify(integrity,null,2),"README.md":readme,"RECORD-SUMMARY.txt":internalSummary,"TOOL-ATTRIBUTION.txt":"Provenance Tool v0.4.2\nOriginator: Xufen Tu\nCanonical project: https://research-tools.xufentu.com\nLicense: Apache-2.0\n\nThis factual software attribution identifies the tool used to generate the package. It does not imply endorsement by the user.\n"};
   if(state.citation)packageFiles["citation.txt"]=state.citation+"\n";
   const packageFileRecords=[];for(const [path,content] of Object.entries(packageFiles)){const bytes=new TextEncoder().encode(content);packageFileRecords.push({path,size_bytes:bytes.byteLength,sha256:await hash(new File([bytes],path))});}
   const manifest={manifest_schema_version:"1.1",package_type:"Provenance Package",package_version:"1.1",record_id:recordId,generated_by:toolAttribution,...commonTime,package_files:packageFileRecords,note:"The manifest does not hash itself. Verify listed files against these SHA-256 values."};
@@ -525,12 +548,29 @@ This package contains generated provenance records. Source files are not include
   const zip=new JSZip();for(const [path,content] of Object.entries(packageFiles))zip.file(path,content);zip.file("release-manifest.json",JSON.stringify(manifest,null,2));zip.file("MANIFEST.sha256",checksumText);
   state.packageBlob=await zip.generateAsync({type:"blob",compression:"DEFLATE",compressionOptions:{level:6}});
   state.packageHash=await hash(new File([state.packageBlob],"provenance-package.zip",{type:"application/zip"}));
-  const totalSize=files.reduce((sum,f)=>sum+f.size_bytes,0);document.querySelectorAll("[data-generated-time-block]").forEach(n=>n.remove());
-  $("recordSummary").innerHTML=`<div style="padding:14px;border:1px solid #333;border-radius:14px"><strong style="display:block;font-size:22px">${files.length}</strong><span style="color:#aaa;font-size:12px">Files</span></div><div style="padding:14px;border:1px solid #333;border-radius:14px"><strong style="display:block;font-size:22px">${fmt(totalSize)}</strong><span style="color:#aaa;font-size:12px">Total size</span></div><div style="padding:14px;border:1px solid #333;border-radius:14px"><strong style="display:block;font-size:22px">SHA-256</strong><span style="color:#aaa;font-size:12px">Integrity</span></div><div style="padding:14px;border:1px solid #333;border-radius:14px"><strong style="display:block;font-size:12px;line-height:1.35;word-break:break-all">${safe(recordId)}</strong><span style="color:#aaa;font-size:12px">Record ID</span></div>`;
+  const totalSize=files.reduce((sum,f)=>sum+f.size_bytes,0);
+  $("compactResultTitle").textContent=title;
+  $("compactResultMeta").textContent=`v${version} · ${$("classification").value} · ${files.length} file(s) · ${fmt(totalSize)}`;
+  $("compactRecordId").textContent=recordId;
+  $("compactPackageHash").textContent=state.packageHash;
   $("hashSummary").innerHTML=`<table><thead><tr><th>${t("hashTitle")}</th><th>SHA-256</th></tr></thead><tbody>${files.map(f=>`<tr><td>${safe(f.relative_path||f.name)}</td><td style="font-family:monospace;white-space:normal;word-break:break-all">${f.sha256}</td></tr>`).join("")}</tbody></table>`;
-  $("hashSummary").insertAdjacentHTML("beforebegin",`<div data-generated-time-block style="margin-top:16px;padding:14px;border:1px solid #333;border-radius:14px;color:#fff;font-size:12px;line-height:1.65"><strong>${t("generatedTime")}</strong><br>${t("localTime")}: ${safe(generatedLocal)}<br>${t("utcTime")}: ${safe(generatedUtc)}<br>Time source: local device clock</div>`);
-  $("citationPreview").textContent=state.citation||"";$("citationDetails").style.display=state.citation?"block":"none";$("packageHash").textContent=`ZIP SHA-256: ${state.packageHash}`;
-  state.summary+=` · ZIP SHA-256 ${state.packageHash}`;
+  $("citationPreview").textContent=state.citation||"";$("citationDetails").style.display=state.citation?"block":"none";
+  state.summary=`Provenance Record Summary
+
+Title: ${title}
+Version: ${version}
+Classification: ${$("classification").value}
+Files: ${files.length}
+Total Size: ${fmt(totalSize)}
+Hash Algorithm: SHA-256
+Record ID: ${recordId}
+ZIP SHA-256: ${state.packageHash}
+
+Generated by Provenance Tool v0.4.2
+Originator: Xufen Tu
+Canonical Tool: https://research-tools.xufentu.com
+`;
+  $("packageHash").textContent=`ZIP SHA-256: ${state.packageHash}`;
   $("downloadStatus").textContent="";$("createResult").classList.add("show");
  }catch(error){console.error(error);alert(t("generateFailed"))}finally{button.disabled=false;button.classList.remove("busy");button.textContent=oldText}
 };
@@ -545,6 +585,15 @@ $("downloadPackage").onclick=()=>{
  setTimeout(()=>URL.revokeObjectURL(u),1500);
  $("downloadStatus").textContent=t("downloaded");
 };
+$("saveSummary").onclick=()=>{
+ if(!state.summary)return;
+ const filename=slug($("title").value)+"-provenance-summary.txt";
+ const blob=new Blob([state.summary],{type:"text/plain;charset=utf-8"});
+ const u=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);
+};
+$("copyRecordId").onclick=()=>navigator.clipboard.writeText(state.recordId||"").then(()=>showToast(t("copiedSummary"))).catch(()=>showToast(t("copyFailed")));
+$("copyPackageHash").onclick=()=>navigator.clipboard.writeText(state.packageHash||"").then(()=>showToast(t("copiedSummary"))).catch(()=>showToast(t("copyFailed")));
 $("saveChecksum").onclick=()=>{
  if(!state.packageHash)return;
  const filename=slug($("title").value)+"-provenance-package.zip";
@@ -579,9 +628,9 @@ $("copySummary").onclick=async()=>{
    showToast(t("copyFailed"));
  }
 };
-$("resetCreate").onclick=()=>{state.create=[];state.packageBlob=null;state.packageHash="";state.citation="";state.summary="";["title","author","version","source"].forEach(id=>$(id).value="");
+$("resetCreate").onclick=()=>{state.create=[];state.packageBlob=null;state.packageHash="";state.citation="";state.summary="";state.recordId="";["title","author","version","source"].forEach(id=>$(id).value="");
 autoFieldState.title=true;autoFieldState.date=true;$("date").value=localDateValue(Date.now());
-["createInput","createFolderInput"].forEach(id=>$(id).value="");$("createFiles").innerHTML="";$("recordSummary").innerHTML="";$("hashSummary").innerHTML="";$("citationPreview").textContent="";$("packageHash").textContent="";$("downloadStatus").textContent="";$("createResult").classList.remove("show")};
+["createInput","createFolderInput"].forEach(id=>$(id).value="");$("createFiles").innerHTML="";$("recordSummary").innerHTML="";$("hashSummary").innerHTML="";$("compactResultTitle").textContent="";$("compactResultMeta").textContent="";$("compactRecordId").textContent="";$("compactPackageHash").textContent="";$("citationPreview").textContent="";$("packageHash").textContent="";$("downloadStatus").textContent="";$("createResult").classList.remove("show")};
 
 async function readIntegrity(file){
  if(!file)throw new Error("No record");

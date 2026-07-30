@@ -19,3 +19,12 @@
 
 - Added installable offline-capable PWA support.
 - Added portable provenance ZIP packages and local file verification.
+
+### v0.4.2 interface refinement (same version)
+
+- Reduced the completion view to a compact professional result card.
+- Added a human-readable summary download matching the copied summary exactly.
+- Kept the machine-readable `.sha256` checksum as a separate technical output.
+- Added `RECORD-SUMMARY.txt` inside generated packages.
+- Added a low-interruption invitation-based research discussion entry.
+- Preserved the separation between public research origin, the free tool, and optional external services.
