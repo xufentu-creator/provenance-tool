@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Provenance Tool",
   "short_name": "Provenance",
-  "description": "Local-first PWA for portable provenance records, file-integrity verification, and version comparison.",
+  "description": "Create and verify portable file provenance records locally in the browser.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -27,5 +27,6 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "version": "0.4.3"
 }

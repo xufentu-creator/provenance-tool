@@ -1,45 +1,34 @@
-# Provenance Tool v0.4.2
+# Provenance Tool v0.4.3
 
-A free, local-first PWA for creating portable file-integrity records, verifying recorded files and package manifests, and comparing file-level changes.
-
-- Source files remain on the user’s device.
-- No account is required.
-- The installed application can operate offline after its application files have been cached.
-- Generated packages include factual tool and version information.
+A lightweight, local-first web application for creating portable file provenance records, verifying recorded files, and comparing file-level changes.
 
 ## Official application
 
 https://research-tools.xufentu.com
 
-## Use
+## Core functions
 
-Open the official application, or serve this repository through HTTPS or a local web server and open `index.html`.
+- Create a portable provenance package
+- Record SHA-256 file integrity values
+- Verify files against a saved record or manifest
+- Compare file sets between versions
+- Export readable and machine-readable records
+- Operate locally in the browser
 
-The application provides three main actions:
+## Origin and maintenance
 
-1. Create a provenance record and downloadable package.
-2. Verify files against a saved record or package manifest.
-3. Compare two selected file sets at the file level.
-
-## Limits
-
-The tool records file hashes and user-confirmed metadata. It does not independently prove legal authorship, ownership, identity, originality, or certified time.
-
-## Repository contents
-
-- Public application source
-- Portable record schema
-- Citation metadata
-- Security and contribution guidance
-- Release inventory
-
-## Attribution
-
-Official reference implementation originated by **Xufen Tu**.
+**Originator and maintainer:** Xufen Tu  
+**Role:** Independent Interdisciplinary Researcher  
+**Research website:** https://xufentu.com  
+**Canonical repository:** https://github.com/xufentu-creator/provenance-tool
 
 ## Citation
 
-See `CITATION.cff`, `CITATION.bib`, or the public Citation page.
+Use `CITATION.cff`, `CITATION.bib`, or the public Citation page.
+
+## Scope
+
+The tool records file state, hashes, version information, and user-provided metadata. It does not independently establish legal authorship, ownership, originality, identity, or certified time.
 
 ## License
 

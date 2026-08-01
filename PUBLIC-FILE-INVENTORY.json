@@ -1,6 +1,8 @@
 {
-  "release": "0.4.2",
-  "generated_at": "2026-07-31",
+  "release": "0.4.3",
+  "generated_at": "2026-08-01",
+  "originator": "Xufen Tu",
+  "canonical_repository": "https://github.com/xufentu-creator/provenance-tool",
   "files": [
     {
       "path": ".well-known/security.txt",
@@ -10,22 +12,22 @@
     {
       "path": "404.html",
       "size": 3862,
-      "sha256": "1f46dc354033ab62654bf8b5ecc13d0a973d3108fb89c52dead381aec5b0893a"
+      "sha256": "a392048f080b9947c648772db4502332d365e540182ba06391d24f4d68a9edd5"
     },
     {
       "path": "CHANGELOG.md",
-      "size": 798,
-      "sha256": "09446cb6af8ac6000d0fd09f7a70911a64ffaccda5daa3ee6bc94e86561d4c9d"
+      "size": 496,
+      "sha256": "c5c9c76a27a5a1c7291acda65bdfb5e704d87f76cbc924285d3fc676c5a8e586"
     },
     {
       "path": "CITATION.bib",
-      "size": 199,
-      "sha256": "977e68e45c63ec25b6dddabcaa22bd7ad17b5875998e556a2148c1b4b6e54cc7"
+      "size": 267,
+      "sha256": "acf6695a75b50f81299a5a4e633ce66fadafee8e9f70d403d38deaacb1a889dc"
     },
     {
       "path": "CITATION.cff",
-      "size": 593,
-      "sha256": "4b68bd2ba6ec0a18c6d7c48590dd7a5a7556c61fdbc27bfdc5f5276517a72efb"
+      "size": 508,
+      "sha256": "e23db1889ade2782c882b27e4312b3f17d35018af7c593c2cadd393d53fe282c"
     },
     {
       "path": "CNAME",
@@ -54,13 +56,13 @@
     },
     {
       "path": "README.md",
-      "size": 1352,
-      "sha256": "0593808d25d09383a03ce9e999444fd8badde0fb650fb936c3684e2ea86f2b64"
+      "size": 1082,
+      "sha256": "75b958c2b166dd255a2a6c961299654299d006ca21aee14a09ce56249f62965e"
     },
     {
       "path": "RELEASE_NOTES.md",
-      "size": 614,
-      "sha256": "706466f3fd3c8f1749c64175a6112b83a0df154534371731044e65048fc20854"
+      "size": 648,
+      "sha256": "689507c6b3dac3dda3fa1619df4fe1d4e9eeb2bfa302fac185797fd8b88418a1"
     },
     {
       "path": "SECURITY.md",
@@ -69,13 +71,13 @@
     },
     {
       "path": "VERSION.md",
-      "size": 276,
-      "sha256": "689381ebe885d5ecaf2afa74cc67beadbae7e161637f1c59f8db99f4f6e2f989"
+      "size": 287,
+      "sha256": "477648e78e5b8d0f64bb060004b7598ad0077dace77e6811bef9498d729cc4ad"
     },
     {
       "path": "about.html",
       "size": 6179,
-      "sha256": "279c0dbc0895f482b0bf5215c4ebc55f4d4bfe920502a18999836ab99cdfe935"
+      "sha256": "6ad05f733fd0aa6272fa30ac68d2e0bd9e8dacec9acff85322b308d40012fb07"
     },
     {
       "path": "assets/social-card.png",
@@ -85,22 +87,22 @@
     {
       "path": "citation.html",
       "size": 5040,
-      "sha256": "73293148f5a4d83ba9c1f4893cd62d97fefcfce9495d8bcce2cb4d8176dd18e4"
+      "sha256": "a6b84c374233bfb19802df9197f6aa6d13c978c6352e6370e1bed582303dc4f6"
     },
     {
       "path": "codemeta.json",
-      "size": 1043,
-      "sha256": "469467a7bf252608ab173ef57571fa04da10e10acc7e3a4bd0e5e5ffc1d42db9"
+      "size": 1305,
+      "sha256": "b8d0925ed545779e1746642ea83ab5bb500906485b8d18061c3f0ada38999d1d"
     },
     {
       "path": "faq.html",
       "size": 7721,
-      "sha256": "5acd6dea4687dc16bd946e901d462fd8b89b0b71f7a07c1477ffee82752fdefb"
+      "sha256": "1d5198b5efb72aa30bd6c03180797457a92d94465c3172be02954962a0b98ab9"
     },
     {
       "path": "how-it-works.html",
       "size": 5047,
-      "sha256": "e3c56f3d9de1a7ad9682d7aead3da1a5cba74300bbc8be2d7e8054a3c46c89b1"
+      "sha256": "9a92b1598d181a5f3249734295d85a9258cfa197ad81f324ad47296e628f0946"
     },
     {
       "path": "icons/icon-192.png",
@@ -114,23 +116,23 @@
     },
     {
       "path": "index.html",
-      "size": 63333,
-      "sha256": "2e4fe74da96fc8fd5ec87d3b4723ddcb63b60558250e7cfae44dd76e326af242"
+      "size": 63182,
+      "sha256": "d8a3f88c1886723812ba75a0aeb9a540882a8520c7e76eb54ea48328ef6d0562"
     },
     {
       "path": "llms.txt",
-      "size": 1099,
-      "sha256": "a3a89f60cdeabf2a2bc82be6a591993e23dcee6c2ef4f6334c59aba07b497fc0"
+      "size": 588,
+      "sha256": "ceaffbd8ea6655a140c2c26773d66c89df32412d6396a8791492692d02d87df4"
     },
     {
       "path": "manifest.webmanifest",
-      "size": 713,
-      "sha256": "ba9a0359e9762806620b89ef589d8dbef55fc971119c9f79f06f005567bb9989"
+      "size": 708,
+      "sha256": "75241a16f5bc5a37607bba094b53b0eb5c18da59a08187ab598702efc02bb5cb"
     },
     {
       "path": "privacy.html",
       "size": 4907,
-      "sha256": "19101f65a614621c79cfd5528612e268d7c712f9d95abfad1d2916623a577de2"
+      "sha256": "51bc20b52f6c5d99834397647ec55da776b4c524c6b01a80fe21ac63cc969424"
     },
     {
       "path": "robots.txt",
@@ -144,18 +146,18 @@
     },
     {
       "path": "service-worker.js",
-      "size": 1336,
-      "sha256": "8867790d5f90febf1f40b14ff6f8445f50ffae9d5d02f2899d37158ff0e2a3b9"
+      "size": 1487,
+      "sha256": "7561cc9fca814106080fec85aa989cac64d438811daeb2b74d0a9635d1c6d2de"
     },
     {
       "path": "sitemap.xml",
-      "size": 807,
-      "sha256": "364f724bc60c50f924b0f8fb1bca00ed33ad29a5db8fd71da6abb4f1f5ae1de0"
+      "size": 1236,
+      "sha256": "96b50e0e65f13e581254f3e529f6725e5d322e2ad7a2fa6777b70d0b4b3cbb92"
     },
     {
       "path": "use-cases.html",
       "size": 5254,
-      "sha256": "7e50a6a27bd341b31879d9d98b3f39fb2649caf1f6a6a3ce2d6fdcf0e07976c2"
+      "sha256": "b179884b8239b164ff5c2438d4dbad1bc31245f5e70e60531f678880b03cf46a"
     },
     {
       "path": "vendor/JSZIP-LICENSE.md",
@@ -166,6 +168,21 @@
       "path": "vendor/jszip.min.js",
       "size": 97630,
       "sha256": "acc7e41455a80765b5fd9c7ee1b8078a6d160bbbca455aeae854de65c947d59e"
+    },
+    {
+      "path": "zh/about.html",
+      "size": 2248,
+      "sha256": "c9bdc9bdd9a4be252e18694da099c46ad60f16aa438ef732b0a7d2d7375a9e74"
+    },
+    {
+      "path": "zh/citation.html",
+      "size": 2106,
+      "sha256": "3b5e132f8e6eb692eb639e9611f6fc8fe6333a03b06fdad53c5d6193d4ad3164"
+    },
+    {
+      "path": "zh/index.html",
+      "size": 1937,
+      "sha256": "9502559a818aab72fd5dc70545da96e3adc6f20225f9f386475139020ee61310"
     }
   ]
 }

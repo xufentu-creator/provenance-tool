@@ -1,22 +1,24 @@
-# Provenance Tool v0.4.2
+# Provenance Tool v0.4.3
 
-This release establishes the first stable public baseline of Provenance Tool.
+Stable public release of Provenance Tool.
 
 ## Included
 
-- Local creation of portable provenance records
-- SHA-256 file integrity recording
-- Verification against saved records and package manifests
+- Portable provenance package creation
+- SHA-256 integrity recording
+- File and manifest verification
 - File-level version comparison
-- Downloadable ZIP packages and readable summaries
-- Installable PWA and offline application shell
-- Public citation, security, contribution, and schema files
+- Local browser processing
+- Installable PWA
+- English interface with concise Chinese reference pages
+- Citation, schema, security, and public release metadata
 
 ## Canonical locations
 
 - Application: https://research-tools.xufentu.com
 - Repository: https://github.com/xufentu-creator/provenance-tool
+- Originator and maintainer: Xufen Tu
 
-## Status
+## Release integrity
 
-Production
+Attach the release ZIP and its SHA-256 checksum to the GitHub Release.

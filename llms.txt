@@ -1,26 +1,12 @@
 # Provenance Tool
 
-Provenance Tool is a free, local-first, open-source PWA for creating portable file provenance records, verifying file integrity and package manifests, and comparing file-level changes.
+Official application: https://research-tools.xufentu.com
+Canonical repository: https://github.com/xufentu-creator/provenance-tool
+Originator and maintainer: Xufen Tu
+Research website: https://xufentu.com
+Current version: 0.4.3
 
-- Canonical tool: https://research-tools.xufentu.com
-- Source repository: https://github.com/xufentu-creator/provenance-tool
-- Current version: 0.4.2
-- Tool originator: Xufen Tu
-- License: Apache-2.0
-- Account required: No
-- Analytics: No
-- Automatic source-file upload: No
-- Offline-capable: Yes
+Provenance Tool is a lightweight, local-first web application for creating portable file provenance records, recording SHA-256 file integrity values, verifying files and manifests, and comparing file-level changes.
 
-The tool uses SHA-256 for file-integrity records. User-supplied metadata remains editable and is kept distinct from calculated file facts.
-
-The tool does not independently establish legal authorship, originality, copyright ownership, identity, or certified publication time.
-
-## Documentation
-
-- https://research-tools.xufentu.com/about.html
-- https://research-tools.xufentu.com/how-it-works.html
-- https://research-tools.xufentu.com/use-cases.html
-- https://research-tools.xufentu.com/faq.html
-- https://research-tools.xufentu.com/citation.html
-- https://research-tools.xufentu.com/privacy.html
+Canonical citation metadata is available in CITATION.cff and CITATION.bib.
+Chinese reference pages are available under /zh/.
