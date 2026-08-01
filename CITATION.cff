@@ -6,7 +6,7 @@ authors:
   - family-names: "Tu"
     given-names: "Xufen"
 version: "0.4.2"
-date-released: "2026-07-30"
+date-released: "2026-07-31"
 url: "https://research-tools.xufentu.com"
 repository-code: "https://github.com/xufentu-creator/provenance-tool"
 license: "Apache-2.0"
