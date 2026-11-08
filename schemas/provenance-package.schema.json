@@ -25,7 +25,7 @@
       "required": [
         "name",
         "version",
-        "original_researcher"
+        "tool_originator"
       ],
       "properties": {
         "name": {
@@ -34,7 +34,7 @@
         "version": {
           "type": "string"
         },
-        "original_researcher": {
+        "tool_originator": {
           "type": "string",
           "minLength": 1
         }

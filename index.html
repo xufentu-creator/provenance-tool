@@ -192,18 +192,27 @@
     @media(max-width:620px){.hero{padding-top:24px}.hero h1{font-size:34px}.view{padding:16px}.drop{min-height:245px}.resultbox{padding:16px}.id-row{grid-template-columns:72px minmax(0,1fr)}.id-row .text-action{display:none}.result-actions .button{flex:1}}
 
   </style>
+  <link rel="stylesheet" href="./assets/product-ui.css" />
 </head>
 <body>
   <main class="shell">
-    <nav class="topbar">
-      <a class="brand" href="https://research-tools.xufentu.com">
-        <span class="mark" aria-hidden="true">✓</span><span>Provenance Tool</span><span class="app-subtitle">Research PWA</span>
+    <nav class="topbar" aria-label="Application navigation">
+      <a class="brand" href="./" aria-label="Provenance Tool home">
+        <span class="mark" aria-hidden="true">P.</span><span>Provenance <span class="brand-light">Tool</span></span><span class="app-subtitle">by Xufen Tu</span>
       </a>
       <div class="top-actions"><span id="networkStatus" class="status-chip">Online</span><button id="installApp" class="button secondary" style="display:none;min-height:38px" aria-label="Install app">Install</button><select id="language" class="lang" aria-label="Language" translate="no">
         <option value="en">English</option>
         <option value="zh-CN">简体中文</option>
         
       </select></div>
+    </nav>
+
+    <nav class="resource-nav" aria-label="Research tool resources">
+      <a href="./how-it-works.html" data-i18n="navHow">How it works</a>
+      <a href="./use-cases.html" data-i18n="navCases">Use cases</a>
+      <a href="./faq.html" data-i18n="navFaq">FAQ</a>
+      <a href="./citation.html" data-i18n="navCitation">Citation</a>
+      <a href="./privacy.html" data-i18n="navPrivacy">Privacy</a>
     </nav>
 
     <header class="hero">
@@ -213,10 +222,16 @@
       <div class="privacy"><span class="dot"></span><span data-i18n="privacy">Source files stay in your browser.</span></div>
     </header>
 
-    <div class="modebar">
-      <button class="modebtn active" data-mode="create" data-i18n="modeCreate">Create record</button>
-      <button class="modebtn" data-mode="verify" data-i18n="modeVerify">Verify record</button>
-      <button class="modebtn" data-mode="compare" data-i18n="modeCompare">Compare versions</button>
+    <div class="assurance-row" aria-label="Tool boundaries">
+      <div><span class="assurance-symbol">01</span><span data-i18n="proofLocal">Local file processing</span></div>
+      <div><span class="assurance-symbol">02</span><span data-i18n="proofPortable">Portable ZIP records</span></div>
+      <div><span class="assurance-symbol">03</span><span data-i18n="proofBoundary">Not a certified timestamp</span></div>
+    </div>
+
+    <div class="modebar" aria-label="Workflow">
+      <button class="modebtn active" data-mode="create" data-i18n="modeCreate" aria-pressed="true">Create record</button>
+      <button class="modebtn" data-mode="verify" data-i18n="modeVerify" aria-pressed="false">Verify record</button>
+      <button class="modebtn" data-mode="compare" data-i18n="modeCompare" aria-pressed="false">Compare versions</button>
     </div>
 
     <section class="workspace">
@@ -382,10 +397,16 @@
       </div>
     </section>
 
+    <footer class="site-footer">
+      <div><strong>Provenance Tool</strong><span data-i18n="footerText">Independent research utility by Xufen Tu. Integrity evidence is not ownership or timestamp certification.</span></div>
+      <a href="./about.html" data-i18n="navAbout">About the project</a>
+    </footer>
+
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </main>
 
 
+<script src="./assets/integrity-core.js"></script>
 <script>
 const $=id=>document.getElementById(id);
 const state={create:[],verifyFiles:[],verifyRecord:null,before:[],after:[],packageBlob:null,packageHash:"",citation:"",summary:"",recordId:""};
@@ -394,6 +415,8 @@ en:{eyebrow:"Portable file provenance",hero:"Create. Verify. Compare.",heroCopy:
 "zh-CN":{eyebrow:"可携带文件溯源",hero:"创建 · 验证 · 对比",heroCopy:"在浏览器中创建记录、核验文件完整性并比较文件级变化。",privacy:"原始文件保留在浏览器中。",modeCreate:"创建记录",modeVerify:"验证记录",modeCompare:"前后对比",createTitle:"创建溯源记录包",createCopy:"添加文件、填写必要信息，并将生成的记录保存为一个 ZIP。",dropTitle:"拖入文件或文件夹",dropCopy:"可选择文件；在浏览器支持时也可拖入文件夹。",selectFiles:"选择文件",selectFolder:"选择文件夹",essential:"必要信息",title:"标题",author:"创建者或记录实体",version:"版本",date:"日期",type:"类型",classification:"记录级别",source:"官方链接（选填）",generate:"生成记录包",clear:"清空",ready:"记录已完成",readyCopy:"可携带的溯源记录包已经准备好保存。",savePackage:"保存溯源记录包",saveChecksum:"保存机器校验值",saveSummary:"保存可读摘要",technicalDetails:"技术详情",researchCircle:"申请加入邀请制研究讨论",copySummary:"复制记录信息",copyHelp:"保存的可读摘要与复制内容完全一致。",copiedSummary:"记录信息已复制到剪贴板。",copiedCitation:"建议引用已复制到剪贴板。",copyFailed:"复制失败，请手动选择文字复制。",citationOptional:"建议引用（仅适用于公开记录）",copyCitation:"复制建议引用",hashTitle:"SHA-256 记录",generatedTime:"生成时间",localTime:"本地时间",utcTime:"UTC 时间",downloaded:"ZIP 已下载。请打开 ZIP 查看完整记录文件。",verifyTitle:"验证文件完整性",verifyCopy:"添加当前文件和已保存的溯源 ZIP 或完整性 JSON。",currentFiles:"当前文件",addFiles:"添加要验证的文件",addFilesCopy:"工具会在本地重新计算 SHA-256。",savedRecord:"已保存记录",addRecord:"添加溯源 ZIP 或 JSON",addRecordCopy:"工具会在本地读取已保存的哈希。",selectRecord:"选择记录",runVerify:"开始验证",compareTitle:"查看哪些文件发生变化",compareCopy:"通过文件路径和 SHA-256 记录比较两个版本。",before:"旧版本",after:"新版本",addBefore:"添加之前的文件",addAfter:"添加现在的文件",folderSupport:"可选择文件；在浏览器支持时也可拖入文件夹。",runCompare:"开始对比",unchanged:"未变化",changed:"已修改",added:"新增",removed:"删除",boundary:"完整性记录支持比对；本地时间不是认证时间戳。",tPaper:"研究论文",tWebsite:"网站",tRepo:"GitHub 仓库",tSoftware:"软件",tCode:"源代码",tAudio:"音频",tVideo:"视频",tImage:"图片",tArchive:"压缩包",tOther:"其他",cPublic:"公开",pathNote:"验证文件夹记录时，请使用与创建记录时一致的根目录结构。",processing:"处理中……",hashing:"计算中 {current}/{total}",generateFailed:"无法生成记录包。",largeFiles:"大文件可能需要更多浏览器内存和处理时间。",autoFillNote:"标题和日期会根据所选文件或文件夹自动填写，并可随时修改。",advancedOptions:"高级选项"}
 };
 let currentLang="en";
+Object.assign(translations.en,{navHow:"How it works",navCases:"Use cases",navFaq:"FAQ",navCitation:"Citation",navPrivacy:"Privacy",navAbout:"About the project",proofLocal:"Local file processing",proofPortable:"Portable ZIP records",proofBoundary:"Not a certified timestamp",footerText:"Independent research utility by Xufen Tu. Integrity evidence is not ownership or timestamp certification."});
+Object.assign(translations["zh-CN"],{navHow:"使用说明",navCases:"使用场景",navFaq:"常见问题",navCitation:"引用方式",navPrivacy:"隐私政策",navAbout:"关于项目",proofLocal:"文件仅在本地处理",proofPortable:"可独立保存的 ZIP 记录",proofBoundary:"非认证时间戳",footerText:"Xufen Tu 独立研究工具。完整性证据不等同于所有权证明或认证时间戳。"});
 function t(k){return (translations[currentLang]||translations.en)[k]||translations.en[k]||k}
 function applyLang(lang){
  currentLang=translations[lang]?lang:"en";document.documentElement.lang=currentLang;$("language").value=currentLang;
@@ -419,6 +442,7 @@ $("date").value=localDateValue(Date.now());
 
 document.querySelectorAll(".modebtn").forEach(b=>b.addEventListener("click",()=>{
  document.querySelectorAll(".modebtn").forEach(x=>x.classList.toggle("active",x===b));
+ document.querySelectorAll(".modebtn").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===b.dataset.mode));
 }));
 
@@ -467,9 +491,23 @@ function autofillCreateMetadata(items){
  }
 }
 function setFiles(key,items,listId){
- const seen=new Set(),clean=[];items.forEach(x=>{const k=x.path+":"+x.file.size+":"+x.file.lastModified;if(!seen.has(k)){seen.add(k);clean.push({...x,hash:null})}});
- state[key]=clean;renderList(clean,listId);
- if(key==="create")autofillCreateMetadata(clean);
+ try{
+  const clean=ProvenanceIntegrity.uniqueFiles(items,x=>x.path).map(x=>({...x,hash:null}));
+  state[key]=clean;renderList(clean,listId);
+  if(key==="create"){invalidateCreatedPackage();autofillCreateMetadata(clean)}
+ }catch(error){
+  state[key]=[];renderList([],listId);
+  if(key==="create")invalidateCreatedPackage();
+  alert((currentLang==="zh-CN"?"文件路径有冲突或不安全：":"Conflicting or unsafe file paths: ")+error.message);
+ }
+}
+function invalidateCreatedPackage(){
+ state.packageBlob=null;state.packageHash="";state.recordId="";state.summary="";state.citation="";
+ $("createResult").classList.remove("show");$("downloadStatus").textContent="";
+}
+for(const id of ["title","author","version","date","type","classification","source"]){
+ $(id).addEventListener("input",invalidateCreatedPackage);
+ $(id).addEventListener("change",invalidateCreatedPackage);
 }
 function renderList(items,id){
  const box=$(id);box.innerHTML=items.map(x=>`<div class="filerow"><div class="fname">${safe(x.path)}</div><div class="fmeta">${fmt(x.file.size)}</div><div class="fstate">Ready</div></div>`).join("")
@@ -644,24 +682,42 @@ async function readIntegrity(file){
   const entry=z.file("file-integrity-records.json");
   if(!entry)throw new Error("Missing file-integrity-records.json");
   const rec=JSON.parse(await entry.async("string"));
+  ProvenanceIntegrity.validateIntegrity(rec);
   const issues=[];
   const manifestEntry=z.file("release-manifest.json");
   if(!manifestEntry){issues.push("missing-manifest");return {rec,issues,packageChecked:true}}
   let manifest;
   try{manifest=JSON.parse(await manifestEntry.async("string"))}catch(_){issues.push("invalid-manifest");return {rec,issues,packageChecked:true}}
-  const listed=Array.isArray(manifest.package_files)?manifest.package_files:[];
+  const listed=ProvenanceIntegrity.validateManifest(manifest);
+  if(manifest.record_id!==rec.record_id)issues.push("record-id-mismatch");
+  const listedPaths=new Set(listed.map(x=>x.path));
+  const allowed=new Set([...listedPaths,"release-manifest.json","MANIFEST.sha256"]);
+  for(const path of Object.keys(z.files)){
+   if(z.files[path].dir)continue;
+   try{if(!allowed.has(ProvenanceIntegrity.normalizePath(path)))issues.push("unlisted:"+path)}
+   catch(_){issues.push("unsafe-path:"+path)}
+  }
   for(const item of listed){
    if(!item||!item.path||!item.sha256){issues.push("invalid-manifest-entry");continue}
    const packageEntry=z.file(item.path);
    if(!packageEntry){issues.push("missing:"+item.path);continue}
    const bytes=await packageEntry.async("uint8array");
+   if(bytes.byteLength!==item.size_bytes)issues.push("size:"+item.path);
    const digest=await crypto.subtle.digest("SHA-256",bytes);
    const actual=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,"0")).join("");
    if(actual.toLowerCase()!==String(item.sha256).toLowerCase())issues.push("changed:"+item.path);
   }
+  const checksumEntry=z.file("MANIFEST.sha256");
+  if(!checksumEntry)issues.push("missing-checksums");
+  else {
+   const lines=(await checksumEntry.async("string")).trimEnd().split("\n");
+   const expected=new Set(listed.map(x=>`${x.sha256}  ${x.path}`));
+   if(lines.length!==expected.size||lines.some(line=>!expected.has(line))||new Set(lines).size!==lines.length)issues.push("changed-checksums");
+  }
   return {rec,issues,packageChecked:true}
  }
- return {rec:JSON.parse(await file.text()),issues:[],packageChecked:false}
+ const rec=JSON.parse(await file.text());ProvenanceIntegrity.validateIntegrity(rec);
+ return {rec,issues:[],packageChecked:false}
 }
 $("runVerify").onclick=async()=>{
  const button=$("runVerify");
@@ -670,7 +726,7 @@ $("runVerify").onclick=async()=>{
  try{
   await ensureHashes(state.verifyFiles,(current,total)=>{button.textContent=t("hashing").replace("{current}",current).replace("{total}",total)});
   const loaded=await readIntegrity(state.verifyRecord),rec=loaded.rec;
-  const stored=new Map((rec.files||[]).map(x=>[x.relative_path||x.name,x])),current=new Map(state.verifyFiles.map(x=>[x.path,x]));
+  const stored=new Map(ProvenanceIntegrity.validateIntegrity(rec).map(x=>[x.path,x])),current=new Map(ProvenanceIntegrity.uniqueFiles(state.verifyFiles,x=>x.path).map(x=>[x.path,x]));
   const keys=[...new Set([...stored.keys(),...current.keys()])].sort(),rows=[];let all=true;
   for(const k of keys){const a=stored.get(k),b=current.get(k);let status;if(!a)status="added";else if(!b)status="removed";else if(a.sha256===b.hash)status="same";else status="changed";if(status!=="same")all=false;rows.push({k,status})}
   const packageValid=!loaded.packageChecked||loaded.issues.length===0;
@@ -698,8 +754,8 @@ $("runCompare").onclick=async()=>{
  try{
   await ensureHashes(state.before,(current,total)=>{button.textContent=t("hashing").replace("{current}",current).replace("{total}",total)});
   await ensureHashes(state.after,(current,total)=>{button.textContent=t("hashing").replace("{current}",current).replace("{total}",total)});
-  const a=new Map(state.before.map(x=>[x.path,x])),b=new Map(state.after.map(x=>[x.path,x])),keys=[...new Set([...a.keys(),...b.keys()])].sort(),rows=[],count={same:0,changed:0,added:0,removed:0};
-  for(const k of keys){const x=a.get(k),y=b.get(k);let s;if(!x)s="added";else if(!y)s="removed";else if(x.hash===y.hash)s="same";else s="changed";count[s]++;rows.push({k,status:s})}
+  const rows=ProvenanceIntegrity.compareFiles(state.before,state.after),count={same:0,changed:0,added:0,removed:0};
+  for(const row of rows)count[row.status]++;
   $("mSame").textContent=count.same;$("mChanged").textContent=count.changed;$("mAdded").textContent=count.added;$("mRemoved").textContent=count.removed;$("compareTable").innerHTML=makeTable(rows);$("compareResults").style.display="block";
  }catch(error){console.error(error);alert(currentLang==="zh-CN"?"无法完成版本比较。":"The versions could not be compared.")}finally{button.disabled=false;button.classList.remove("busy");button.textContent=oldText}
 };

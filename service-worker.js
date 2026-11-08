@@ -1,4 +1,4 @@
-const CACHE_NAME = "provenance-tool-v0.4.3";
+const CACHE_NAME = "provenance-tool-v0.4.3-product-review-2";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -18,7 +18,8 @@ const APP_SHELL = [
   "./CITATION.bib",
   "./VERSION.md",
   "./RELEASE_NOTES.md",
-  "./.well-known/security.txt",
+  "./assets/integrity-core.js",
+  "./assets/product-ui.css",
   "./vendor/jszip.min.js",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
@@ -38,12 +39,13 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
+ if (new URL(event.request.url).origin !== self.location.origin) return;
   event.respondWith(
     caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
       if (!response || response.status !== 200 || response.type === "opaque") return response;
       const copy = response.clone();
       caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
       return response;
-    }).catch(() => caches.match("./index.html")))
+    }).catch(() => event.request.mode === "navigate" ? caches.match("./index.html") : Response.error()))
   );
 });
